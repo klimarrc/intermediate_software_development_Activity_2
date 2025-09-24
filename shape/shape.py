@@ -7,10 +7,10 @@ from abc import ABC, abstractmethod
 
 
 class Shape(ABC):
-    """ class Shape is an  Abstract class for geometric shapes."""
+    """ class Shape is a Superclass for geometric shapes."""
 
     def __init__(self, color: str):
-        """Initialize the shape with a color.
+        """Initialize class attributes to correspond arguments values.
         Args:
             color (str): The color shape. 
 
@@ -22,7 +22,7 @@ class Shape(ABC):
             self._color = color
         else:
             raise ValueError("Color cannot be blank.")
-    
+
     def __str__(self) -> str:
         """String returns the color shape.
         Returns:
@@ -30,18 +30,18 @@ class Shape(ABC):
             with the message - "Color shape is {color}."
         """
         return (f"Color shape is {self._color}.")
-    
+
     @abstractmethod
-    def area(self) -> float:
+    def calculate_area(self) -> float:
         """Abstract method to compute the area of the shape in 
         centimeters.
     """
         pass
 
     @abstractmethod
-    def perimeter(self) -> float:
+    def calculate_perimeter(self) -> float:
         """Abstract method to compute the perimeter of the shape 
         in centimeters.
         """
-        
+
         pass

@@ -1,17 +1,21 @@
 """This module defines the Triangle class."""
 
-__author__ = "Kailine Lima" 
+__author__ = "Kailine Lima"
 __version__ = "1.0.0"
 
+import math
 from shape.shape import Shape
 
 
 class Triangle(Shape):
-    """ class Triangle is a subclass of super classShape for triangles."""
+    """  The class Triangle is a subclass that is created by inheriting 
+    from super class Shape.
+
+    """
+
     def __init__(self, color: str, side_1: int, side_2: int, side_3: int):
-        
         """
-        Initialize the triangle with a color, base, height and sides.
+        Initialize the triangle with a color and three sides.
 
         Args:
             color (str): The color shape. 
@@ -20,9 +24,9 @@ class Triangle(Shape):
             side_3 (int): The length of side 3 of the triangle in centimeters.
         Raises:
                 ValueError: when the color cannot be blank,
-                when side_1 is not numeric.
-                when side_2 is not numeric.
-                when side_3 is not numeric.
+                when side_1 must be numeric.
+                when side_2 must be numeric.
+                when side_3 must be numeric.
         """
 
         super().__init__(color)
@@ -39,9 +43,14 @@ class Triangle(Shape):
         else:
             raise ValueError("Side 3 must be numeric.")
 
-        if (self.__side_1 + self.__side_2 > self.__side_3 and
-            self.__side_1 + self.__side_3 > self.__side_2 and
-            self.__side_2 + self.__side_3 > self.__side_1):
+        triangle_inequality_theorem = (self.__side_1 + self.__side_2
+                                       > self.__side_3 and
+                                       self.__side_1 + self.__side_3
+                                       > self.__side_2 and
+                                       self.__side_2 + self.__side_3
+                                       > self.__side_1)
+
+        if  not triangle_inequality_theorem:
             self.__side_1 = side_1
             self.__side_2 = side_2
             self.__side_3 = side_3
@@ -57,16 +66,14 @@ class Triangle(Shape):
             This triangle has three sides with lengths of {side_1}, 
             {side_2} and {side_3} centimeters.
         """
+        shape_string = super().__str__()
+        triangle_string = (f"This triangle has three sides with lengths "
+                           f"of {self.__side_1}, {self.__side_2} and "
+                           f"{self.__side_3} centimeters.")
 
-        return (f"The shape color is {self._color}.\n"
-                    f"This triangle has three sides with lengths "
-                    f"of {self.__side_1}, {self.__side_2} and "
-                    f"{self.__side_3} centimeters.")
+        return (shape_string + "\n" + triangle_string)
 
-
-        
-    
-    def area(self) -> float:
+    def calculate_area(self) -> float:
         """
         Calculates the area of the triangle using Heron's formula.
 
@@ -74,12 +81,11 @@ class Triangle(Shape):
             float: The area of the triangle in square centimeters.
         """
         sp = (self.__side_1 + self.__side_2 + self.__side_3) / 2
-        area = (sp * (sp - self.__side_1) * (sp - self.__side_2) * 
+        area = (sp * (sp - self.__side_1) * (sp - self.__side_2) *
                 (sp - self.__side_3))
         return area
-    
-    # Removed undefined decorator
-    def perimeter(self) -> float:
+
+    def calculate_perimeter(self) -> float:
         """
         Calculates the perimeter of the triangle.
 
