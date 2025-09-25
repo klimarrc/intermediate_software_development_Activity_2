@@ -1,10 +1,12 @@
-"""This module defines the Triangle class.
+"""
+This module defines the Triangle class.
 - The Triangle class is a subclass of Shape.
-- It represents a triangle with a color and three sides.
+- It represents a triangle with a color and threesides.
 - It includes super() to call the constructor of the Shape class.
 - It includes methods to calculate area and perimeter.
 - The class ensures that the sides satisfy the Triangle Inequality 
 Theorem.
+- It is importing the math module to perform mathematical calculations.
 """
 
 __author__ = "Kailine Lima"
@@ -15,28 +17,31 @@ from shape.shape import Shape
 
 
 class Triangle(Shape):
-    """  The class Triangle is a subclass that is created by inheriting 
-    from super class Shape.
-    Attributes:
-        color (str): The color shape.
-        side_1 (int): The length of side 1 of the triangle in centimeters.
-        side_2 (int): The length of side 2 of the triangle in centimeters.
-        side_3 (int): The length of side 3 of the triangle in centimeters.
+    """ 
+    The class Triangle is a subclass of Shape represents a triangle.
+
+    Methods:
+    __init__: Initializes the triangle with a color and three sides.
+    __str__: String returns the color shape and the sides of the triangle.
+    calculate_area: Calculates the area of the triangle using Heron's formula.
+    calculate_perimeter: Calculates the perimeter of the triangle.
     """
 
     def __init__(self, color: str, side_1: int, side_2: int, side_3: int):
-        """Initialize the triangle with a color and three sides.
+        """
+        Initialize the triangle with a color and three sides.
 
         Args:
             color (str): The color shape. 
             side_1 (int): The length of side 1 of the triangle in centimeters.
             side_2 (int): The length of side 2 of the triangle in centimeters.
             side_3 (int): The length of side 3 of the triangle in centimeters.
+
         Raises:
                 ValueError: when the color cannot be blank,
                 when side_1 must be numeric.
-                when    side_2 must be numeric.
-                when    side_3 must be numeric.
+                when side_2 must be numeric.
+                when side_3 must be numeric.
         """
         super().__init__(color)
         if isinstance(side_1, int):
@@ -67,6 +72,7 @@ class Triangle(Shape):
     def __str__(self) -> str:
         """
         String returns the color shape and the sides of the triangle.
+
         Returns:
             str: The shape color is {color}.
             This triangle has three sides with lengths of {side_1}, 

@@ -1,7 +1,10 @@
-"""This module defines the TestRectangle class.
+"""
+This module defines the TestRectangle class.
 - Contains the test cases for the Rectangle class.
 - Successful initialization valid inputs for color, length and width.
 - Handling of invalid inputs for color, length and width.
+- Color shape is set correctly with protected attribute.
+- Calculation of area and perimeter.
 """
 
 __author__ = "Kailine Lima"
@@ -10,12 +13,13 @@ __version__ = "1.0.0"
 import unittest
 from shape.rectangle import Rectangle
 
+
 class TestRectangle(unittest.TestCase):
-    """Represents a rectangle test cases."""
-    
+    """Represents a rectangle test cases for the Rectangle class."""
+
     def setUp(self):
         """Set up test with a valid rectangle instance."""
-        
+
         self.rectangle = Rectangle("Red", 5, 6)
 
     def test_init_valid_rectangle_attributes_set(self):
@@ -23,16 +27,14 @@ class TestRectangle(unittest.TestCase):
         Test that the attributes are set correctly when a valid
         Rectangle is created.
         """
-        # Arrange
-
         # Act
         rectangle = Rectangle("Red", 5, 6)
 
-        # Assert 
+        # Assert
         self.assertEqual("Red", self.rectangle._color)
         self.assertEqual(5, self.rectangle._Rectangle__length)
         self.assertEqual(6, self.rectangle._Rectangle__width)
-    
+
     def test_init_blanck_color_valueError_raised(self):
         """ 
         Test when the color cannot be blank, if not raised the ValueError.
@@ -41,7 +43,7 @@ class TestRectangle(unittest.TestCase):
         # Act
         with self.assertRaises(ValueError):
             Rectangle("", 5, 6)
-    
+
     def test_init_non_numeric_length_valueError_raised(self):
         """
         Test when length must be numeric, if not raised the ValueError.
@@ -49,7 +51,7 @@ class TestRectangle(unittest.TestCase):
         """
         with self.assertRaises(ValueError):
             Rectangle("Red", "five", 6)
-    
+
     def test_init_non_numeric_width_valueError_raised(self):
         """
         Test when width must be numeric, if not raised the ValueError.
@@ -65,8 +67,6 @@ class TestRectangle(unittest.TestCase):
         # Arrange
         rectangle = Rectangle("Red", 5, 6)
 
-        # Act
-
         # Assert
         expected = ("The shape color is Red.\n"
                     "This rectangle has four sides with the lengths "
@@ -75,31 +75,25 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(expected, str(rectangle))
 
     def test_calculate_area_correct_rectangle_area_returned(self):
-            """
-            Test that the calculate_area method returns the correct area 
-            of the rectangle.
-            """
-            # Arrange
-            expected_area = 30
+        """
+        Test that the calculate_area method returns the correct area 
+        of the rectangle.
+        """
+        # Arrange
+        expected_area = 30
 
-            # Act
-            area = self.rectangle.calculate_area()
-
-            # Assert
-            self.assertAlmostEqual(expected_area, area)
-
+        # Assert
+        self.assertAlmostEqual(expected_area, 
+                               self.rectangle.calculate_area())
 
     def test_calculate_perimeter_rectangle_correct_perimeter_returned(self):
-            
-            """ 
-            Test that the calculate_perimeter method returns the correct 
-            perimeter of the rectangle.
-            """
-            # Arrange
-            expected_perimeter = 22
-            
-            # Act
-            perimeter = self.rectangle.calculate_perimeter()
+        """ 
+        Test that the calculate_perimeter method returns the correct 
+        perimeter of the rectangle.
+        """
+        # Arrange
+        expected_perimeter = 22
 
-            # Assert
-            self.assertEqual(expected_perimeter, perimeter)
+        # Assert
+        self.assertEqual(expected_perimeter,
+                         self.rectangle.calculate_perimeter())

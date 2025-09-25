@@ -10,10 +10,10 @@ from shape import *
 
 
 def main():
-    """Test the functionality of the methods encapsulated 
+    """
+    Test the functionality of the methods encapsulated 
     in this project.
     """
-
     # In the statements coded below, ensure that any statement that
     # could result in an exception is handled.  When exceptions are
     # 'caught', display the exception message to the console.
