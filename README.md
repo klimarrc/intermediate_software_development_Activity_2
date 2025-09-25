@@ -31,7 +31,7 @@ attribute.
 with integer input (`__side_1`, `__side_2`, and `__side_3`). They have to
 satisfy the Triangle Inequality and Theorem.
 - Attributes are kept private by using double underscore.
-- Implemented `super()` for color initialization
+- Implemented `super()` for color initialization.
 - The method `__str__` that returns a string message.
 - It also calculates the area and perimeter by implementing Hero's formula
 and the perimeter formula. The methods return the calculated area and
