@@ -1,4 +1,10 @@
-"""This module defines the Triangle class."""
+"""This module defines the Triangle class.
+- The Triangle class is a subclass of Shape.
+- It represents a triangle with a color and three sides.
+- It includes methods to calculate area and perimeter.
+- The class ensures that the sides satisfy the Triangle Inequality Theorem.
+
+"""
 
 __author__ = "Kailine Lima"
 __version__ = "1.0.0"
