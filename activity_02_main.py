@@ -4,7 +4,9 @@ classes.
 
 __author__ = "ACE Faculty"
 __version__ = "1.0.0"
-__credits__ = ""
+__credits__ = "Kailine Lima"
+
+from shape import *
 
 def main():
     """Test the functionality of the methods encapsulated 
@@ -19,22 +21,33 @@ def main():
     print("*************PART 1****************")
 
     # 1. Create an empty list of Shape objects.
-
+    shapes = []
 
     # 2. Code a statement which creates an instance of the Triangle 
     # class.
     # Append the Triangle to the list of shapes.
-
-
+    try:
+        triangle = Triangle("Red", 5, 5, 6)
+        shapes.append(triangle)
+    except Exception as e:
+        print(e)
     # 3. Code a statement which creates an instance of the Rectangle 
     # class.
     # Append the Rectangle to the list of shapes.
-
-
+    try:
+        rectangle = Rectangle("Red", 5, 6)
+        shapes.append(rectangle)
+    except Exception as e:
+        print(e)
 
     # 4. Code 3 additional statements which creates an instance of 
     # Triangle or Rectangle classes (your choice).
     # Append these instances to the list of shapes.
+    try:
+        triangle2 = Triangle("Blue", 3, 4, 5)
+        shapes.append(triangle2)
+    except Exception as e:
+        print(e)
 
 
     # 5. Iterate through the list of shapes.  

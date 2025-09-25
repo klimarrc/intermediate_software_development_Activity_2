@@ -11,8 +11,7 @@ import unittest
 from shape.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
-    """Represents a rectangle test case
-    """
+    """Represents a rectangle test cases."""
     
     def setUp(self):
         """Set up test with a valid rectangle instance."""

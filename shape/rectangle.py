@@ -30,8 +30,8 @@ class Rectangle(Shape):
             width (int): The width of the rectangle in centimeters.
         Raises:
                 ValueError: when the color cannot be blank,
-                when length must be numeric.
-                when width must be numeric.
+                            when length must be numeric.
+                            when width must be numeric.
         """
 
         super().__init__(color)
@@ -51,8 +51,8 @@ class Rectangle(Shape):
 
         Returns:
             str: The shape color is {color}.
-            This rectangle has a length of {length} centimeters 
-            and a width of {width} centimeters.
+            This rectangle has four sides with the lengths of 
+            {length}, {width}, {length} and {width} centimeters.
         """
 
         return (f"The shape color is {self._color}.\n"
@@ -66,7 +66,7 @@ class Rectangle(Shape):
         Calculate the area of the rectangle.
 
         Returns:
-            float: The area of the rectangle in square centimeters.
+            int: The area of the rectangle in square centimeters.
         """
         area = self.__length * self.__width
 
