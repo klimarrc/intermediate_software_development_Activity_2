@@ -1,9 +1,10 @@
 """This module defines the Triangle class.
 - The Triangle class is a subclass of Shape.
 - It represents a triangle with a color and three sides.
+- It includes super() to call the constructor of the Shape class.
 - It includes methods to calculate area and perimeter.
-- The class ensures that the sides satisfy the Triangle Inequality Theorem.
-
+- The class ensures that the sides satisfy the Triangle Inequality 
+Theorem.
 """
 
 __author__ = "Kailine Lima"
@@ -16,12 +17,15 @@ from shape.shape import Shape
 class Triangle(Shape):
     """  The class Triangle is a subclass that is created by inheriting 
     from super class Shape.
-
+    Attributes:
+        color (str): The color shape.
+        side_1 (int): The length of side 1 of the triangle in centimeters.
+        side_2 (int): The length of side 2 of the triangle in centimeters.
+        side_3 (int): The length of side 3 of the triangle in centimeters.
     """
 
     def __init__(self, color: str, side_1: int, side_2: int, side_3: int):
-        """
-        Initialize the triangle with a color and three sides.
+        """Initialize the triangle with a color and three sides.
 
         Args:
             color (str): The color shape. 
@@ -31,10 +35,9 @@ class Triangle(Shape):
         Raises:
                 ValueError: when the color cannot be blank,
                 when side_1 must be numeric.
-                when side_2 must be numeric.
-                when side_3 must be numeric.
+                when    side_2 must be numeric.
+                when    side_3 must be numeric.
         """
-
         super().__init__(color)
         if isinstance(side_1, int):
             self.__side_1 = side_1
@@ -50,8 +53,8 @@ class Triangle(Shape):
             raise ValueError("Side 3 must be numeric.")
 
         Triangle_Inequality_Theorem = (side_1 + side_2 > side_3 and
-                                         side_1 + side_3 > side_2 and
-                                         side_2 + side_3 > side_1)
+                                       side_1 + side_3 > side_2 and
+                                       side_2 + side_3 > side_1)
 
         if (Triangle_Inequality_Theorem):
             self.__side_1 = side_1
@@ -85,7 +88,7 @@ class Triangle(Shape):
         """
         sp = (self.__side_1 + self.__side_2 + self.__side_3) / 2
         area = math.sqrt(sp * (sp - self.__side_1) * (sp - self.__side_2) *
-                (sp - self.__side_3))
+                         (sp - self.__side_3))
         return area
 
     def calculate_perimeter(self) -> float:

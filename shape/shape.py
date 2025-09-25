@@ -26,7 +26,7 @@ class Shape(ABC):
         Raises:
                 ValueError: when the color cannot be blank.
         """
-        
+
         if len(color.strip()) > 0:
             self._color = color
         else:
@@ -34,7 +34,7 @@ class Shape(ABC):
 
     def __str__(self) -> str:
         """String returns the color shape.
-        
+
         Returns:
             str: A string representation of the color shape 
             with the message - "Color shape is {color}."
