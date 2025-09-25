@@ -30,27 +30,24 @@ class Triangle(Shape):
         """
 
         super().__init__(color)
-        if isinstance(side_1, (int)):
+        if isinstance(side_1, int):
             self.__side_1 = side_1
         else:
             raise ValueError("Side 1 must be numeric.")
-        if isinstance(side_2, (int)):
+        if isinstance(side_2, int):
             self.__side_2 = side_2
         else:
             raise ValueError("Side 2 must be numeric.")
-        if isinstance(side_3, (int)):
+        if isinstance(side_3, int):
             self.__side_3 = side_3
         else:
             raise ValueError("Side 3 must be numeric.")
 
-        triangle_inequality_theorem = (self.__side_1 + self.__side_2
-                                       > self.__side_3 and
-                                       self.__side_1 + self.__side_3
-                                       > self.__side_2 and
-                                       self.__side_2 + self.__side_3
-                                       > self.__side_1)
+        Triangle_Inequality_Theorem = (side_1 + side_2 > side_3 and
+                                         side_1 + side_3 > side_2 and
+                                         side_2 + side_3 > side_1)
 
-        if  not triangle_inequality_theorem:
+        if (Triangle_Inequality_Theorem):
             self.__side_1 = side_1
             self.__side_2 = side_2
             self.__side_3 = side_3
@@ -81,7 +78,7 @@ class Triangle(Shape):
             float: The area of the triangle in square centimeters.
         """
         sp = (self.__side_1 + self.__side_2 + self.__side_3) / 2
-        area = (sp * (sp - self.__side_1) * (sp - self.__side_2) *
+        area = math.sqrt(sp * (sp - self.__side_1) * (sp - self.__side_2) *
                 (sp - self.__side_3))
         return area
 
